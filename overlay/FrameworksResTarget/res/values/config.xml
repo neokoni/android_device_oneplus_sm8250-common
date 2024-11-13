@@ -75,4 +75,7 @@
      <!-- Doze: should the TYPE_PICK_UP_GESTURE sensor be used as a pulse signal. -->
      <bool name="config_dozePulsePickup">true</bool>
 
+     <!-- Whether devices suports in-display fingerprint when screen is off -->
+    <bool name="config_supportScreenOffUdfps">true</bool>
+
 </resources>
