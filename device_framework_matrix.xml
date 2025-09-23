@@ -1,0 +1,12 @@
+<?xml version="2.0" encoding="UTF-8"?>
+<compatibility-matrix version="2.0" type="framework">
+    <hal format="hidl">
+        <name>vendor.qti.hardware.vpp</name>
+        <transport>hwbinder</transport>
+        <version>1.4</version>
+        <interface>
+            <name>IHidlVppService</name>
+            <instance>vppService</instance>
+        </interface>
+    </hal>
+</compatibility-matrix>
