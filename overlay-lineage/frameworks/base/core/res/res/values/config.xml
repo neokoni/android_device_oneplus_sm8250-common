@@ -17,6 +17,11 @@
 <!-- These resources are around just to allow their values to be customized
      for different hardware and product builds.  Do not translate. -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- The default refresh rate -->
+    <integer name="config_defaultRefreshRate">120</integer>
+
+    <!-- The default peak refresh rate. -->
+    <integer name="config_defaultPeakRefreshRate">120</integer>
     <!-- The list of packages to automatically opt in of fresh rate suppressing by small area
          detection. Format of this array should be packageName:threshold and threshold value should
          be between 0 to 1-->
