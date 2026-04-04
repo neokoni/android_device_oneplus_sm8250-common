@@ -27,6 +27,9 @@
          (lower-end devices may want to disable) -->
     <bool name="config_deviceSupportsHighPerfTransitions">true</bool>
 
+    <!-- The amount to scale fullscreen snapshots for Overview and snapshot starting windows. -->
+    <item name="config_highResTaskSnapshotScale" format="float" type="dimen">0.7</item>
+
     <!-- The list of packages to automatically opt in of fresh rate suppressing by small area
          detection. Format of this array should be packageName:threshold and threshold value should
          be between 0 to 1-->
