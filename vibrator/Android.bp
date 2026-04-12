@@ -4,10 +4,7 @@ Common_CFlags += ["-Werror"]
 cc_library_shared {
     name: "vendor.qti.hardware.vibrator.impl.oplus_kona",
     vendor: true,
-    cflags: Common_CFlags + select(soong_config_variable("OPLUS_LINEAGE_VIBRATOR_HAL", "USE_EFFECT_STREAM"), {
-        true: ["-DUSE_EFFECT_STREAM"],
-        default: [],
-    }),
+    cflags: Common_CFlags,
     srcs: [
         "Vibrator.cpp",
     ],
@@ -17,10 +14,7 @@ cc_library_shared {
         "liblog",
         "libbinder_ndk",
         "android.hardware.vibrator-V1-ndk",
-    ] + select(soong_config_variable("OPLUS_LINEAGE_VIBRATOR_HAL", "USE_EFFECT_STREAM"), {
-        true: ["liboplusvibratoreffect.oplus_kona"],
-        default: [],
-    }),
+    ],
     export_include_dirs: ["include"],
 }
 
