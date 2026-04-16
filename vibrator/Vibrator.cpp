@@ -460,23 +460,8 @@ ndk::ScopedAStatus Vibrator::perform(Effect effect, EffectStrength es,
     ALOGD("Vibrator perform effect %d", effect);
 
     if (ledVib.mDetected) {
-        switch (es) {
-            case EffectStrength::MEDIUM:
-                ALOGD("Vibrator perform effect strength MEDIUM");
-                break;
-            case EffectStrength::LIGHT:
-                ALOGD("Vibrator perform effect strength LIGHT");
-                break;
-            case EffectStrength::STRONG:
-                ALOGD("Vibrator perform effect strength STRONG");
-                break
-            default:
-                ALOGD("Vibrator perform effect strength UNKNOW");
-        }
-
         switch (effect) {
             case Effect::CLICK:
-                ALOGD("Perform vibrator effect CLICK");
                 ledVib.write_value(LED_DEVICE "/rtp", "0");
                 ledVib.write_value(LED_DEVICE "/vmax", "2500");
                 ledVib.write_value(LED_DEVICE "/waveform_index", "1");
@@ -484,7 +469,6 @@ ndk::ScopedAStatus Vibrator::perform(Effect effect, EffectStrength es,
                 ledVib.write_value(LED_DEVICE "/rtp", "0");
                 break;
             case Effect::DOUBLE_CLICK:
-                ALOGD("Perform vibrator effect DOUBLE_CLICK");
                 ledVib.write_value(LED_DEVICE "/rtp", "0");
                 ledVib.write_value(LED_DEVICE "/vmax", "2500");
                 ledVib.write_value(LED_DEVICE "/waveform_index", "1");
@@ -498,7 +482,6 @@ ndk::ScopedAStatus Vibrator::perform(Effect effect, EffectStrength es,
                 ledVib.write_value(LED_DEVICE "/rtp", "0");
                 break;
             case Effect::TICK:
-                ALOGD("Perform vibrator effect TICK");
                 ledVib.write_value(LED_DEVICE "/rtp", "0");
                 ledVib.write_value(LED_DEVICE "/vmax", "1400");
                 ledVib.write_value(LED_DEVICE "/waveform_index", "1");
@@ -506,7 +489,6 @@ ndk::ScopedAStatus Vibrator::perform(Effect effect, EffectStrength es,
                 ledVib.write_value(LED_DEVICE "/rtp", "0");
                 break;
             case Effect::HEAVY_CLICK:
-                ALOGD("Perform vibrator effect HEAVY_CLICK");
                 ledVib.write_value(LED_DEVICE "/rtp", "0");
                 ledVib.write_value(LED_DEVICE "/vmax", "2500");
                 ledVib.write_value(LED_DEVICE "/waveform_index", "4");
@@ -514,7 +496,6 @@ ndk::ScopedAStatus Vibrator::perform(Effect effect, EffectStrength es,
                 ledVib.write_value(LED_DEVICE "/rtp", "0");
                 break;
             case Effect::TEXTURE_TICK:
-                ALOGD("Perform vibrator effect TEXTURE_TICK");
                 ledVib.write_value(LED_DEVICE "/rtp", "0");
                 ledVib.write_value(LED_DEVICE "/vmax", "60");
                 ledVib.write_value(LED_DEVICE "/waveform_index", "2");
