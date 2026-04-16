@@ -58,12 +58,14 @@ class InputFFDevice {
 class LedVibratorDevice {
   public:
     LedVibratorDevice();
-    int on(int32_t timeoutMs);
-    int onWaveform(int waveformIndex);
+    int on(int32_t timeoutMs, EffectStrength es);
+    int onWaveform(int waveformIndex, EffectStrength es);
     int off();
     bool mDetected;
     int write_value(const char* file, const char* value);
     int write_value(const char* file, int value);
+    int getMagnitude(EffectStrength es);
+    int getMagnitude(int value, EffectStrength es);
 };
 
 class Vibrator : public BnVibrator {
