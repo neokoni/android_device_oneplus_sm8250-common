@@ -66,6 +66,7 @@ class LedVibratorDevice {
     int write_value(const char* file, int value);
     int getMagnitude(EffectStrength es);
     int getMagnitude(int value, EffectStrength es);
+    EffectStrength mCurrStrength;
 };
 
 class Vibrator : public BnVibrator {

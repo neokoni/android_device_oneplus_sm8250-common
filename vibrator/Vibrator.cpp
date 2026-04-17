@@ -72,8 +72,8 @@ namespace vibrator {
 #define LED_DEVICE "/sys/class/leds/vibrator"
 #define LED_MAX_MAGNITUDE 2400 // maximum vmax is 2400
 #define LED_MIN_MAGNITUDE 800
-#define LED_LIGHT_MAGNITUDE 1000
-#define LED_MEDIUM_MAGNITUDE 1700
+#define LED_LIGHT_MAGNITUDE 900
+#define LED_MEDIUM_MAGNITUDE 1600
 #define LED_STRONG_MAGNITUDE LED_MAX_MAGNITUDE
 
 InputFFDevice::InputFFDevice() {
@@ -319,6 +319,7 @@ LedVibratorDevice::LedVibratorDevice() {
     int fd;
 
     mDetected = false;
+    mCurrStrength = EffectStrength::MEDIUM;
 
     snprintf(devicename, sizeof(devicename), "%s/%s", LED_DEVICE, "activate");
     fd = TEMP_FAILURE_RETRY(open(devicename, O_RDWR));
@@ -331,6 +332,7 @@ LedVibratorDevice::LedVibratorDevice() {
 }
 
 int LedVibratorDevice::getMagnitude(EffectStrength es) {
+    mCurrStrength = es;
     switch (es) {
         case EffectStrength::LIGHT:
             return LED_LIGHT_MAGNITUDE;
@@ -344,32 +346,36 @@ int LedVibratorDevice::getMagnitude(EffectStrength es) {
 }
 
 int LedVibratorDevice::getMagnitude(int value, EffectStrength es) {
-    int ret, tmp_i, tmp_f;
+    int ret, tmp, tmp_i, tmp_f;
     float percentage;
 
+    mCurrStrength = es;
+    tmp = value - LED_MIN_MAGNITUDE;
     switch (es) {
         case EffectStrength::LIGHT:
-            percentage = 0.33;
+            percentage = 0.1;
             break;
         case EffectStrength::MEDIUM:
-            percentage = 0.66;
+            percentage = 0.52;
             break;
         case EffectStrength::STRONG:
         default:
             percentage = 1;
     }
 
-    ret = value * percentage;
-
-    if (ret < LED_MIN_MAGNITUDE) {
-        return LED_MIN_MAGNITUDE;
-    }
+    ret = tmp * percentage;
 
     tmp_i = ret / 100;
     tmp_f = ret % 100;
 
     if (tmp_f != 0) {
         tmp_f < 50 ? ret = tmp_i * 100 : ret = ++tmp_i * 100;
+    }
+
+    ret += LED_MIN_MAGNITUDE;
+
+    if (ret < LED_MIN_MAGNITUDE) {
+        return LED_MIN_MAGNITUDE;
     }
 
     return ret;
@@ -415,7 +421,7 @@ int LedVibratorDevice::on(int32_t timeoutMs, EffectStrength es) {
     } else if (timeoutMs <= 20) {
         ret |= write_value(LED_DEVICE "/vmax", LED_LIGHT_MAGNITUDE);
     } else {
-        ret |= write_value(LED_DEVICE "/vmax", getMagnitude(es));
+        ret |= write_value(LED_DEVICE "/vmax", getMagnitude(2050, es));
     }
     ret |= write_value(LED_DEVICE "/waveform_index", 7);
     ret |= write_value(LED_DEVICE "/duration", timeoutMs);
@@ -429,7 +435,7 @@ int LedVibratorDevice::on(int32_t timeoutMs, EffectStrength es) {
 int LedVibratorDevice::onWaveform(int waveformIndex, EffectStrength es) {
     int ret = 0;
     ret |= write_value(LED_DEVICE "/rtp", "0");
-    ret |= write_value(LED_DEVICE "/vmax", getMagnitude(2000, es));
+    ret |= write_value(LED_DEVICE "/vmax", getMagnitude(2050, es));
     ret |= write_value(LED_DEVICE "/waveform_index", waveformIndex);
     ret |= write_value(LED_DEVICE "/brightness", "1");
     ret |= write_value(LED_DEVICE "/rtp", "0");
@@ -481,7 +487,7 @@ ndk::ScopedAStatus Vibrator::on(int32_t timeoutMs,
 
     ALOGD("Vibrator on for timeoutMs: %d", timeoutMs);
     if (ledVib.mDetected)
-        ret = ledVib.on(timeoutMs, EffectStrength::MEDIUM);
+        ret = ledVib.on(timeoutMs, ledVib.mCurrStrength);
     else
         ret = ff.on(timeoutMs);
 
@@ -547,7 +553,7 @@ ndk::ScopedAStatus Vibrator::perform(Effect effect, EffectStrength es,
                 break;
             case Effect::TEXTURE_TICK:
                 ledVib.write_value(LED_DEVICE "/rtp", "0");
-                ledVib.write_value(LED_DEVICE "/vmax", ledVib.getMagnitude(1400, es));
+                ledVib.write_value(LED_DEVICE "/vmax", ledVib.getMagnitude(950, es));
                 ledVib.write_value(LED_DEVICE "/waveform_index", "2");
                 ledVib.write_value(LED_DEVICE "/brightness", "1");
                 ledVib.write_value(LED_DEVICE "/rtp", "0");
