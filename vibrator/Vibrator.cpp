@@ -539,7 +539,7 @@ ndk::ScopedAStatus Vibrator::perform(Effect effect, EffectStrength es,
                 break;
             case Effect::TICK:
                 ledVib.write_value(LED_DEVICE "/rtp", "0");
-                ledVib.write_value(LED_DEVICE "/vmax", ledVib.getMagnitude(LED_MEDIUM_MAGNITUDE, es));
+                ledVib.write_value(LED_DEVICE "/vmax", ledVib.getMagnitude(LED_MEDIUM_MAGNITUDE+300, es));
                 ledVib.write_value(LED_DEVICE "/waveform_index", "1");
                 ledVib.write_value(LED_DEVICE "/brightness", "1");
                 ledVib.write_value(LED_DEVICE "/rtp", "0");
