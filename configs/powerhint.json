@@ -9,7 +9,7 @@
         "1516800",
         "1344000",
         "1075200",
-         "883200"
+        "883200"
       ],
       "DefaultIndex": 0,
       "ResetOnInit": true
@@ -21,7 +21,7 @@
         "9999999",
         "1171200",
         "1075200",
-         "691200"
+        "691200"
       ],
       "ResetOnInit": true
     },
@@ -35,7 +35,7 @@
         "1766400",
         "1478400",
         "1056000",
-         "825600"
+        "825600"
       ],
       "DefaultIndex": 0,
       "ResetOnInit": true
@@ -50,7 +50,7 @@
         "1766400",
         "1478400",
         "1286400",
-         "710400"
+        "710400"
       ],
       "ResetOnInit": true
     },
@@ -63,7 +63,7 @@
         "1862400",
         "1747200",
         "1305600",
-         "960000"
+        "960000"
       ],
       "DefaultIndex": 0,
       "ResetOnInit": true
@@ -77,8 +77,8 @@
         "1862400",
         "1747200",
         "1190400",
-         "960000",
-         "844800"
+        "960000",
+        "844800"
       ],
       "ResetOnInit": true
     },
@@ -88,10 +88,6 @@
       "Values": [
         "0",
         "1"
-      ],
-      "Comments": [
-        "0 => 587000000",
-        "1 => 525000000"
       ],
       "DefaultIndex": 0,
       "ResetOnInit": true
@@ -107,106 +103,6 @@
         "4",
         "5"
       ],
-      "Comments": [
-        "0 => 587000000",
-        "1 => 525000000",
-        "2 => 490000000",
-        "3 => 441600000",
-        "4 => 400000000",
-        "5 => 305000000"
-      ],
-      "ResetOnInit": true
-    },
-    {
-      "Name": "GPUForceRailOn",
-      "Path": "/sys/class/kgsl/kgsl-3d0/force_rail_on",
-      "Values": [
-        "1",
-        "0"
-      ],
-      "ResetOnInit": true
-    },
-    {
-      "Name": "GPUForceClkOn",
-      "Path": "/sys/class/kgsl/kgsl-3d0/force_clk_on",
-      "Values": [
-        "1",
-        "0"
-      ],
-      "ResetOnInit": true
-    },
-    {
-      "Name": "GPUForceBusOn",
-      "Path": "/sys/class/kgsl/kgsl-3d0/force_bus_on",
-      "Values": [
-        "1",
-        "0"
-      ],
-      "ResetOnInit": true
-    },
-    {
-      "Name": "GPUIdleTimer",
-      "Path": "/sys/class/kgsl/kgsl-3d0/idle_timer",
-      "Values": [
-        "10000",
-        "80"
-      ],
-      "ResetOnInit": true
-    },
-    {
-      "Name": "CPUBWHystTriggerCount",
-      "Path": "/sys/class/devfreq/soc:qcom,cpu-cpu-llcc-bw/bw_hwmon/hyst_trigger_count",
-      "Values": [
-        "0",
-        "3"
-      ],
-      "ResetOnInit": true
-    },
-    {
-      "Name": "CPUBWHistMemory",
-      "Path": "/sys/class/devfreq/soc:qcom,cpu-cpu-llcc-bw/bw_hwmon/hist_memory",
-      "Values": [
-        "0",
-        "20"
-      ],
-      "ResetOnInit": true
-    },
-    {
-      "Name": "CPUBWHystLength",
-      "Path": "/sys/class/devfreq/soc:qcom,cpu-cpu-llcc-bw/bw_hwmon/hyst_length",
-      "Values": [
-        "0",
-        "10"
-      ],
-      "ResetOnInit": true
-    },
-    {
-      "Name": "CPUBWMinFreq",
-      "Path": "/sys/class/devfreq/soc:qcom,cpu-cpu-llcc-bw/min_freq",
-      "Values": [
-        "14236",
-        "9155",
-        "2288"
-      ],
-      "ResetOnInit": true
-    },
-    {
-      "Name": "LLCCBWMinFreq",
-      "Path": "/sys/class/devfreq/soc:qcom,cpu-llcc-ddr-bw/min_freq",
-      "Values": [
-        "6881",
-        "3879",
-        "762"
-      ],
-      "ResetOnInit": true
-    },
-    {
-      "Name": "L3BigClusterMinFreq",
-      "Path": "/sys/class/devfreq/18590000.qcom,devfreq-l3:qcom,cpu4-cpu-l3-lat/min_freq",
-      "Values": [
-        "1612800000",
-        "300000000"
-      ],
       "ResetOnInit": true
     },
     {
@@ -217,16 +113,6 @@
         "100"
       ],
       "HoldFd": true
-    },
-    {
-      "Name": "PeltMult",
-      "Path": "/proc/sys/kernel/sched_pelt_multiplier",
-      "Values": [
-        "1",
-        "4"
-      ],
-      "DefaultIndex": 0,
-      "ResetOnInit": true
     },
     {
       "Name": "TAUClampBoost",
@@ -299,45 +185,9 @@
     },
     {
       "PowerHint": "INTERACTION",
-      "Node": "PeltMult",
-      "Duration": 0,
-      "Value": "4"
-    },
-    {
-      "PowerHint": "INTERACTION",
       "Node": "TAUClampBoost",
       "Duration": 0,
       "Value": "28"
-    },
-    {
-      "PowerHint": "INTERACTION",
-      "Node": "CPUBWHystTriggerCount",
-      "Duration": 0,
-      "Value": "0"
-    },
-    {
-      "PowerHint": "INTERACTION",
-      "Node": "CPUBWHystLength",
-      "Duration": 0,
-      "Value": "0"
-    },
-    {
-      "PowerHint": "INTERACTION",
-      "Node": "CPUBWHistMemory",
-      "Duration": 0,
-      "Value": "0"
-    },
-    {
-      "PowerHint": "INTERACTION",
-      "Node": "CPUBWMinFreq",
-      "Duration": 0,
-      "Value": "9155"
-    },
-    {
-      "PowerHint": "INTERACTION",
-      "Node": "LLCCBWMinFreq",
-      "Duration": 0,
-      "Value": "3879"
     },
     {
       "PowerHint": "LAUNCH",
@@ -353,12 +203,6 @@
     },
     {
       "PowerHint": "LAUNCH",
-      "Node": "PeltMult",
-      "Duration": 3000,
-      "Value": "4"
-    },
-    {
-      "PowerHint": "LAUNCH",
       "Node": "PMQoSCpuDmaLatency",
       "Duration": 5000,
       "Value": "44"
@@ -368,66 +212,6 @@
       "Node": "TAUClampBoost",
       "Duration": 5000,
       "Value": "28"
-    },
-    {
-      "PowerHint": "LAUNCH",
-      "Node": "CPUBWHystTriggerCount",
-      "Duration": 5000,
-      "Value": "0"
-    },
-    {
-      "PowerHint": "LAUNCH",
-      "Node": "CPUBWHystLength",
-      "Duration": 5000,
-      "Value": "0"
-    },
-    {
-      "PowerHint": "LAUNCH",
-      "Node": "CPUBWHistMemory",
-      "Duration": 5000,
-      "Value": "0"
-    },
-    {
-      "PowerHint": "LAUNCH",
-      "Node": "CPUBWMinFreq",
-      "Duration": 5000,
-      "Value": "14236"
-    },
-    {
-      "PowerHint": "LAUNCH",
-      "Node": "GPUForceBusOn",
-      "Duration": 5000,
-      "Value": "1"
-    },
-    {
-      "PowerHint": "LAUNCH",
-      "Node": "GPUForceClkOn",
-      "Duration": 5000,
-      "Value": "1"
-    },
-    {
-      "PowerHint": "LAUNCH",
-      "Node": "GPUForceRailOn",
-      "Duration": 5000,
-      "Value": "1"
-    },
-    {
-      "PowerHint": "LAUNCH",
-      "Node": "GPUIdleTimer",
-      "Duration": 5000,
-      "Value": "10000"
-    },
-    {
-      "PowerHint": "LAUNCH",
-      "Node": "LLCCBWMinFreq",
-      "Duration": 5000,
-      "Value": "6881"
-    },
-    {
-      "PowerHint": "LAUNCH",
-      "Node": "L3BigClusterMinFreq",
-      "Duration": 5000,
-      "Value": "1612800000"
     },
     {
       "PowerHint": "CAMERA_LAUNCH",
@@ -620,12 +404,6 @@
       "Node": "CPUBigPlusClusterMaxFreq",
       "Duration": 3600000,
       "Value": "960000"
-    },
-    {
-      "PowerHint": "DOUBLE_TAP_TO_WAKE",
-      "Node": "DoubleTapToWakeEnable",
-      "Duration": 0,
-      "Value": "1"
     }
   ]
 }
