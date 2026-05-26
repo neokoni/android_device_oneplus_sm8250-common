@@ -1,11 +1,12 @@
---- a/manifest_oplus_fingerprint.xml
-+++ b/manifest_oplus_fingerprint.xml
-@@ -14,7 +14,7 @@
-  *************************************************************/
- -->
- <manifest version="1.0" type="device">
--    <hal format="hidl">
-+    <hal override="true" format="hidl">
-         <name>android.hardware.biometrics.fingerprint</name>
-         <transport>hwbinder</transport>
-         <version>2.3</version>
+<manifest version="1.0" type="device">
+    <hal override="true" format="hidl">
+        <name>android.hardware.biometrics.fingerprint</name>
+        <transport arch="32+64">passthrough</transport>
+        <version>2.1</version>
+        <interface>
+            <name>IBiometricsFingerprint</name>
+            <instance>default</instance>
+        </interface>
+        <up-to-version>2.1</up-to-version>
+    </hal>
+</manifest>
