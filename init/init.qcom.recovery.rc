@@ -26,8 +26,8 @@
 #
 
 on init
-    setprop ro.recovery.ui.brightness_normal_percent 4
-    setprop ro.recovery.ui.brightness_dimmed_percent 1
+    setprop ro.recovery.ui.brightness_normal_percent 8
+    setprop ro.recovery.ui.brightness_dimmed_percent 2
     setprop sys.usb.configfs 1
 
 on property:ro.boot.usbcontroller=*
