@@ -1,0 +1,6 @@
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="color_mode_option_vivid">Vivid</string>
+    <string name="color_mode_option_natural">Natural</string>
+    <string name="color_mode_option_cinematic">Cinematic</string>
+    <string name="color_mode_option_brilliant">Brilliant</string>
+</resources>
