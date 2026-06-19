@@ -1,0 +1,3 @@
+/sys/devices/platform/soc/.*/led:torch_0/brightness    u:object_r:sysfs_torch:s0
+/sys/devices/platform/soc/.*/led:torch_1/brightness    u:object_r:sysfs_torch:s0
+/sys/devices/platform/soc/.*/led:switch_2/brightness   u:object_r:sysfs_torch:s0

@@ -141,6 +141,8 @@ ENABLE_VENDOR_RIL_SERVICE := true
 VENDOR_SECURITY_PATCH := 2024-10-05
 
 # SEPolicy
+BOARD_VENDOR_SEPOLICY_DIRS += \
+    device/oneplus/sm8250-common/sepolicy/vendor
 include device/qcom/sepolicy_vndr/SEPolicy.mk
 include hardware/oplus/sepolicy/qti/SEPolicy.mk
 BOARD_VENDOR_SEPOLICY_DIRS += \
