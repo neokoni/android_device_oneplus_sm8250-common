@@ -829,13 +829,13 @@ function configure_zram_parameters() {
     if [ $RamSizeGB -le 2 ]; then
         let zRamSizeMB="( $RamSizeGB * 1024 ) * 3 / 4"
     else
-        let zRamSizeMB="( $RamSizeGB * 1024 ) / 2"
+        let zRamSizeMB="( 6 * 1024 )"
     fi
 
     # use MB avoid 32 bit overflow
-    if [ $zRamSizeMB -gt 4096 ]; then
-        let zRamSizeMB=4096
-    fi
+    # if [ $zRamSizeMB -gt 4096 ]; then
+    #     let zRamSizeMB=4096
+    # fi
 
     if [ "$low_ram" == "true" ]; then
         echo lz4 > /sys/block/zram0/comp_algorithm
