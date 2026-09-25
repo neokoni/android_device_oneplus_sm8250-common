@@ -1,3 +1,7 @@
+# Torch brightness
 /sys/devices/platform/soc/.*/led:torch_0/brightness    u:object_r:sysfs_torch:s0
 /sys/devices/platform/soc/.*/led:torch_1/brightness    u:object_r:sysfs_torch:s0
 /sys/devices/platform/soc/.*/led:switch_2/brightness   u:object_r:sysfs_torch:s0
+
+# Vibrator
+/vendor/bin/hw/vendor\.qti\.hardware\.vibrator\.service\.oplus_kona        u:object_r:hal_vibrator_default_exec:s0
