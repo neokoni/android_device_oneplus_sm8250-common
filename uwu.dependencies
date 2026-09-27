@@ -3,24 +3,24 @@
     "repository": "PixelOS-AOSP/android_hardware_oplus",
     "target_path": "hardware/oplus",
     "remote": "github",
-    "branch": "sixteen-qpr2"
+    "branch": "seventeen"
   },
   {
     "repository": "neokoni/android_kernel_oneplus_sm8250",
     "target_path": "kernel/oneplus/sm8250",
     "remote": "github",
-    "branch": "16.2"
+    "branch": "17.0"
   },
   {
     "repository": "neokoni/proprietary_vendor_oneplus_sm8250-common",
     "target_path": "vendor/oneplus/sm8250-common",
     "remote": "github",
-    "branch": "16.2"
+    "branch": "17.0"
   },
   {
     "repository": "TheMuppets/proprietary_vendor_oneplus_lemonades",
     "target_path": "vendor/oneplus/lemonades",
     "remote": "github",
-    "branch": "lineage-23.2"
+    "branch": "lineage-24.0"
   }
 ]
