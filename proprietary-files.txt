@@ -1,5 +1,5 @@
 ## All proprietary files from this list, unless pinned and noted otherwise, are
-## from OnePlus 8T (KB2005_14.0.0.603(EX01)).
+## from OnePlus 9R (LE2101_14.0.0.2401(EX01)).
 
 # ACDBs
 vendor/etc/acdbdata/adsp_avs_config.acdb;SYMLINK=odm/etc/acdbdata/adsp_avs_config.acdb
